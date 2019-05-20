@@ -1,14 +1,37 @@
-<!DOCTYPE html>
+<!-- include A-Frame obviously -->
 <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.0/aframe/build/aframe-ar.js"></script>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-	<a-scene embedded arjs='sourceType: webcam;'>
-
-		<a-sphere position="0 0.5 0" radius="0.5" color="#EF2D5E"></a-sphere>
-		<a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>
-
-		<a-marker-camera preset='hiro'></a-marker-camera>
-	</a-scene>
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs="debugUIEnabled:false; trackingMethod:best;">
+		<a-assets>
+			<a-asset-item id="earth_ball-obj" src="model_obj/earth_ball/earth_ball.obj"></a-asset-item>
+			<a-asset-item id="earth_ball-mtl" src="model_obj/earth_ball/earth_ball.mtl"></a-asset-item>
+		</a-assets>
+    <!-- create your content here. just a box for now -->
+    <!-- <a-box position='0 1 1' material='opacity: 0.3;'></a-box> -->
+		<!-- <a-entity
+			obj-model="obj: #earth_ball-obj; mtl: #earth_ball-mtl"
+			position="0 0.5 -2" scale="0.01 0.01 0.01" rotation="0 0 0"
+			animation="property: rotation; to: 0 360 0; loop: true; dur:30000"
+		>
+		</a-entity> -->
+		<a-video
+			src="videos/MyGifttoyou.mp4"
+			position="0 0 0" scale="4 4 4" rotation="0 0 0"
+		></a-video>
+		<!-- <a-text
+			value="Mahoto & Kaori"
+			position="-2 0 0" scale="2 2 2" rotation="-45 0 0"
+			color="red"
+			animation="property: rotation; to: 360 0 0; loop: true; dur:10000"
+		></a-text> -->
+		<!-- <a-image
+			src="imgs/DSC_0073.JPG"
+			position="0 1.5 -1" scale="2 2 2" rotation="180 180 0"
+			animation="property: rotation; to: 540 540 0; loop: true; dur:10000"
+		></a-image> -->
+		<!-- define a camera which will move according to the marker position -->
+    <a-marker-camera type='pattern' url='./marker/pattern-23f7869a1a1858c788fc690c19d8c6120762ad54-700.patt'></a-marker-camera>
+  </a-scene>
 </body>
-</html>
