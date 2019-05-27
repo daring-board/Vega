@@ -1,27 +1,62 @@
-<!DOCTYPE html>
+<!-- include A-Frame obviously -->
 <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.0/aframe/build/aframe-ar.js"></script>
 
-<!-- start the body of your page -->
-<body style='margin : 0px; overflow: hidden;'>
-<!-- add some info at the top of the page -->
-	<div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-		<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - tango example for a-frame by <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
-	</div>
+<script>
+AFRAME.registerComponent('registerevents', {
+	init: function () {
+		var marker = this.el;
+		marker.addEventListener('markerFound', function() {
+			var markerId = marker.id;
+			console.log('markerFound', markerId);
+			// TODO: Add your own code here to react to the marker being found.
+			this.markerVisible = true;
+		});
+		marker.addEventListener('markerLost', function() {
+			var markerId = marker.id;
+			console.log('markerLost', markerId);
+			// TODO: Add your own code here to react to the marker being lost.
+			this.markerVisible = false;
+		});
+	}
+});
+</script>
 
-	<!-- Define your 3d scene and enabled ar.js -->
-	<a-scene embedded arjs='trackingMethod: best;'>
-		<!-- Create a anchor to attach your augmented reality -->
-		<a-anchor hit-testing-enabled='true'>
-			<!-- Add your augmented reality here -->
-			<a-box position='0 0.5 0' material='opacity: 0.5; side:double; color:red;'>
-				<a-torus-knot radius='0.26' radius-tubular='0.05'>
-					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-				</a-torus-knot>
-			</a-box>
-		</a-anchor>
-		<!-- Define a static camera -->
+<body style='margin : 0px; overflow: hidden;'>
+	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; trackingMethod: best;' vr-mode-ui="enabled: false">
+		<a-assets>
+				<video
+					id="flower"
+					loop="true"
+					src="./videos/580042174.026765.mp4"
+				></video>
+			</a-assets>
+
+
+		<a-marker
+			id="gahara"
+			registerevents
+			smooth="true"
+			type='pattern'
+			url='./marker/pattern-23f7869a1a1858c788fc690c19d8c6120762ad54-700.patt'
+		>
+			<a-entity
+				geometry="primitive: plane"
+				material="src: #flower;"
+				position="0 0.5 0" scale="1 1 1" rotation="-90 0 0"
+			></a-entity>
+		</a-marker>
 		<a-camera-static/>
-	</a-scene>
+  </a-scene>
 </body>
-</html>
+<script>
+var v = document.querySelector('#flower');
+window.addEventListener('click', function () {
+	if(v.paused){
+		v.play();
+	}else{
+		v.pause();
+	}
+});
+
+</script>
