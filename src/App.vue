@@ -24,7 +24,7 @@ export default {
   color: #2c3e50;
   width: 100vw;
   height: 100vh;
-  background-image: url("./assets/gahag-0056013690.png");
+  background-image: url("./assets/toppage_3.png");
   background-size: cover;
 }
 </style>
