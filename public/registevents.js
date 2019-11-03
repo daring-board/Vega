@@ -1,10 +1,7 @@
 var name_list = [
 	{
-		event_name: 'registerevents',
-		name: 'flower' 
-	},{
-		event_name: 'hiroevents',
-		name: 'dish'
+		event_name: 'maedorievents',
+		name: 'maedori'
 	}
 ]
 

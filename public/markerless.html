@@ -10,39 +10,22 @@ var v = null;
 	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; trackingMethod: best;' vr-mode-ui="enabled: false">
 		<a-assets>
 			<video
-				id="flower"
+				id="maedori"
 				loop="true"
-				src="./videos/580042174.026765.mp4"
-			></video>
-			<video
-				id="dish"
-				loop="true"
-				src="./videos/720p.mp4"
+				src="./videos/maedori.mp4"
 			></video>
 		</a-assets>
 
 		<a-marker
-			id="gahara"
-			registerevents
+			id="maedori"
+			maedorievents
 			smooth="true"
 			type='pattern'
-			url='./marker/pattern-23f7869a1a1858c788fc690c19d8c6120762ad54-700.patt'
+			url='./marker/pattern-20191011_maedori.patt'
 		>	
 			<a-entity
 				geometry="primitive: plane"
-				material="src: #flower;"
-				position="0 0.1 0" scale="1.2 1.2 1.2" rotation="-90 0 0"
-			></a-entity>
-		</a-marker>
-		<a-marker
-			id="hiro"
-			hiroevents
-			smooth="true"
-			preset="hiro"
-		>	
-			<a-entity
-				geometry="primitive: plane"
-				material="src: #dish;"
+				material="src: #maedori;"
 				position="0 0.1 0" scale="1.2 1.2 1.2" rotation="-90 0 0"
 			></a-entity>
 		</a-marker>

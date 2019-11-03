@@ -22,14 +22,13 @@ export default {
   data() {
     return {
       fields: [
-        'No', 'Title', 'Episorde', {
+        'Episorde', {
           key: 'Watched',
           label: 'Download'
         }
       ],
       items: [
-        {'No': 1, 'Title': 'flower', 'Episorde': 'ハーブ園でビール', 'Watched': true, 'path': '/videos/580042174.026765.mp4'},
-        {'No': 2, 'Title': 'dish', 'Episorde': 'ハーブ園', 'Watched': false, 'path': '/videos/720p.mp4'},
+        {'Episorde': 'ハーブ園でビール', 'Watched': false, 'path': '/videos/maedori.mp4'},
       ]
     }
   },
