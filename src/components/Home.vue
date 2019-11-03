@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="home">
     <b-container>
       <p>
         <b-button @click="clickARCamera">ARカメラ</b-button>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   props: {
     msg: String
   },
@@ -28,7 +28,7 @@ export default {
         }
       ],
       items: [
-        {'Episorde': 'ハーブ園でビール', 'Watched': false, 'path': '/videos/maedori.mp4'},
+        {'Episorde': '前撮り＠相楽園', 'Watched': false, 'path': '/videos/maedori.mp4'},
       ]
     }
   },

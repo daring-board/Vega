@@ -4,7 +4,7 @@
       <b-row>
         <img class="top-img" src="./assets/toppage_1.png"/>
       </b-row>
-        <HelloWorld
+        <Home
           msg="Welcome to Our Party"
         />
     </b-container>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './components/Home.vue'
 
 export default {
   name: 'app',
