@@ -50,14 +50,18 @@ name_list.forEach(obj => {
 		init: function () {
 			var marker = this.el;
 			var name = obj.name;
-			localStorage.setItem(name, 0);
 			marker.addEventListener('markerFound', function() {
 				var markerId = marker.id;
 				console.log('markerFound', markerId);
 				// TODO: Add your own code here to react to the marker being found.
 				this.markerVisible = true;
 				v = document.querySelector('#'+name);
-				var count = localStorage.getItem(name);
+				var count = 0;
+				if (localStorage.getItem(name) === null) {
+					count = 0
+				}else{
+					count = localStorage.getItem(name);
+				}
 				localStorage.setItem(name, ++count);
 				console.log(count);
 			});

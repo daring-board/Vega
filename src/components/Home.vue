@@ -28,20 +28,20 @@ export default {
         }
       ],
       items: [
-        {'name': 'maedori', 'Episorde': '挨拶', 'Watched': false, 'path': '/videos/greeting.mp4'},
-        {'name': 'maedori', 'Episorde': '初デート', 'Watched': false, 'path': '/videos/ep_01.mp4'},
-        {'name': 'maedori', 'Episorde': 'プロポーズ', 'Watched': false, 'path': '/videos/ep_02.mp4'},
-        {'name': 'maedori', 'Episorde': '前撮り＠相楽園', 'Watched': false, 'path': '/videos/maedori480.mp4'},
-        {'name': 'maedori', 'Episorde': '挨拶A', 'Watched': false, 'path': '/videos/greeting_A.mp4'},
-        {'name': 'maedori', 'Episorde': '挨拶B', 'Watched': false, 'path': '/videos/greeting_B.mp4'},
-        {'name': 'maedori', 'Episorde': '挨拶C', 'Watched': false, 'path': '/videos/greeting_C.mp4'},
-        {'name': 'maedori', 'Episorde': '挨拶D', 'Watched': false, 'path': '/videos/greeting_D.mp4'},
-        {'name': 'maedori', 'Episorde': '挨拶E', 'Watched': false, 'path': '/videos/greeting_E.mp4'},
-        {'name': 'maedori', 'Episorde': '挨拶F', 'Watched': false, 'path': '/videos/greeting_F.mp4'},
-        {'name': 'maedori', 'Episorde': '挨拶G', 'Watched': false, 'path': '/videos/greeting_G.mp4'},
-        {'name': 'maedori', 'Episorde': '挨拶H', 'Watched': false, 'path': '/videos/greeting_H.mp4'},
-        {'name': 'maedori', 'Episorde': '数学クイズ', 'Watched': false, 'path': '/videos/mathQuiz.mp4'},
-        {'name': 'maedori', 'Episorde': '一問一答', 'Watched': false, 'path': '/videos/oneQoneA.mp4'},
+        {'name': 'greeting', 'Episorde': '挨拶', 'Watched': false, 'path': '/videos/greeting.mp4'},
+        {'name': 'ep01', 'Episorde': '初デート', 'Watched': false, 'path': '/videos/ep_01.mp4'},
+        {'name': 'ep02', 'Episorde': 'プロポーズ', 'Watched': false, 'path': '/videos/ep_02.mp4'},
+        {'name': 'maedori', 'Episorde': '前撮りの様子', 'Watched': false, 'path': '/videos/maedori480.mp4'},
+        {'name': 'greeting_A', 'Episorde': 'テーブルA', 'Watched': false, 'path': '/videos/greeting_A.mp4'},
+        {'name': 'greeting_B', 'Episorde': 'テーブルB', 'Watched': false, 'path': '/videos/greeting_B.mp4'},
+        {'name': 'greeting_C', 'Episorde': 'テーブルC', 'Watched': false, 'path': '/videos/greeting_C.mp4'},
+        {'name': 'greeting_D', 'Episorde': 'テーブルD', 'Watched': false, 'path': '/videos/greeting_D.mp4'},
+        {'name': 'greeting_E', 'Episorde': 'テーブルE', 'Watched': false, 'path': '/videos/greeting_E.mp4'},
+        {'name': 'greeting_F', 'Episorde': 'テーブルF', 'Watched': false, 'path': '/videos/greeting_F.mp4'},
+        {'name': 'greeting_G', 'Episorde': 'テーブルG', 'Watched': false, 'path': '/videos/greeting_G.mp4'},
+        {'name': 'greeting_H', 'Episorde': 'テーブルH', 'Watched': false, 'path': '/videos/greeting_H.mp4'},
+        {'name': 'mathQuiz', 'Episorde': '数学クイズ', 'Watched': false, 'path': '/videos/mathQuiz.mp4'},
+        {'name': 'oneQoneA', 'Episorde': '一問一答', 'Watched': false, 'path': '/videos/oneQoneA.mp4'},
       ]
     }
   },
@@ -65,10 +65,15 @@ export default {
     }
 
     this.items.forEach(element => {
-      var count = localStorage.getItem(element['name'])
-      /* eslint-disable */ 
-      console.log(localStorage)
-      element['Watched'] = (count > 0)
+      if (localStorage.getItem(element['name']) === null) {
+        element['Watched'] = false
+        localStorage.setItem(name, 0);
+      }else{
+        var count = localStorage.getItem(element['name'])
+        /* eslint-disable */ 
+        console.log(localStorage)
+        element['Watched'] = (count > 0)
+      }
     });
   },
   methods: {
