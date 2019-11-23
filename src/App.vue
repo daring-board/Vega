@@ -17,7 +17,7 @@ import Home from './components/Home.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Home
   }
 }
 </script>
@@ -34,6 +34,6 @@ export default {
 }
 .top-img{
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 </style>
